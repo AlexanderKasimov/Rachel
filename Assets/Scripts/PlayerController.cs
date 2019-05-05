@@ -9,9 +9,16 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 2f;
 
+    private Animator animator;
+    private SpriteRenderer sr;
+
+    public float velocity;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -20,6 +27,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(LoadSceneAsync());
         }
+        animator.SetFloat("Speed", rb2d.velocity.magnitude);
+
     }
 
     private void FixedUpdate()
@@ -27,6 +36,18 @@ public class PlayerController : MonoBehaviour
         float horizontalMovement = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalMovement, 0);
         rb2d.AddForce(movement*speed*Time.deltaTime);
+        velocity = rb2d.velocity.normalized.x;
+
+        if (horizontalMovement < 0)
+        {
+            sr.flipX = true;
+        }
+        if (horizontalMovement > 0)
+        {
+            sr.flipX = false;
+        }
+
+
     }
 
     IEnumerator LoadSceneAsync()

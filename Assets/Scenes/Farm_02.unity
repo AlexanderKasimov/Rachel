@@ -543,7 +543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474697248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.71, y: 0.64, z: 0}
+  m_LocalPosition: {x: 12.93, y: 0.73, z: 0}
   m_LocalScale: {x: 30.629326, y: 12.064689, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -677,12 +677,12 @@ PrefabInstance:
     - target: {fileID: 5406187553208412339, guid: e106b0be4b8d8eb439757e7be6113509,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.71
+      value: -7.67
       objectReference: {fileID: 0}
     - target: {fileID: 5406187553208412339, guid: e106b0be4b8d8eb439757e7be6113509,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.372
       objectReference: {fileID: 0}
     - target: {fileID: 5406187553208412339, guid: e106b0be4b8d8eb439757e7be6113509,
         type: 3}
@@ -728,21 +728,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406187553208412336, guid: e106b0be4b8d8eb439757e7be6113509,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406187553208412336, guid: e106b0be4b8d8eb439757e7be6113509,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406187553208412336, guid: e106b0be4b8d8eb439757e7be6113509,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e106b0be4b8d8eb439757e7be6113509, type: 3}
