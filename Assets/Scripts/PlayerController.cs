@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sr;
 
-    public float velocity;
+    private Vector2 movementDir;
+
 
     private void Awake()
     {
@@ -23,43 +24,30 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            StartCoroutine(LoadSceneAsync());
-        }
-        animator.SetFloat("Speed", rb2d.velocity.magnitude);
-
+        animator.SetFloat("Speed", movementDir.magnitude);
     }
 
     private void FixedUpdate()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(horizontalMovement, 0);
-        rb2d.AddForce(movement*speed*Time.deltaTime);
-        velocity = rb2d.velocity.normalized.x;
+        //Get Input
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        movementDir = new Vector2(horizontalInput, verticalInput).normalized;
 
-        if (horizontalMovement < 0)
+        //Move player
+        rb2d.MovePosition(rb2d.position + movementDir * speed * Time.fixedDeltaTime);        
+    
+        //Sprite Rotation
+        if (movementDir.x < 0)
         {
             sr.flipX = true;
         }
-        if (horizontalMovement > 0)
+        if (movementDir.x > 0)
         {
             sr.flipX = false;
         }
-
-
     }
 
-    IEnumerator LoadSceneAsync()
-    {
-        Debug.Log("Start loading");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Farm_02");
-        while (!asyncLoad.isDone)
-        {            
-            yield return null;
-            Debug.Log("Loaded");
-        }   
-    }
 
 
 
