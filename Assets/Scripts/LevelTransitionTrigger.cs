@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionTrigger : MonoBehaviour
 {
+    public string levelName = "Farm_";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class LevelTransitionTrigger : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         Debug.Log("Start loading");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Farm_02");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levelName);
         while (!asyncLoad.isDone)
         {
             yield return null;
