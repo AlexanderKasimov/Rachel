@@ -13,6 +13,8 @@ public class DiamondMover : MonoBehaviour
     public float endSpeed = 1f;
     public GameObject startPlace;
     public GameObject endPlace;
+    public GameObject anomaly;
+    public GameObject transition;
 
 
 
@@ -26,7 +28,7 @@ public class DiamondMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("ActivateAnomaly", 3.8f);
     }
 
     // Update is called once per frame
@@ -41,10 +43,19 @@ public class DiamondMover : MonoBehaviour
         if (Vector2.Distance(transform.position, startPlace.transform.position) < 0.05f && !isFirstTime)   
         {
             moveVector = -moveVector;
+            
         }   
             
            
 
         transform.Translate(moveVector*speed*Time.deltaTime);
     }
+
+    void ActivateAnomaly()
+    {
+        anomaly.SetActive(true);
+        enabled = false;
+        transition.SetActive(true);
+    }
+
 }
